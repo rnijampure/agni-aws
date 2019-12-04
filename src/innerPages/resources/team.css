@@ -1,0 +1,79 @@
+#accepted_leaves .hideme.approve_btn{
+    display: inline-flex;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 50%;
+    color: #1A8679;
+}
+#accepted_leaves  .MuiButton-textPrimary { 
+    color: #1A8679 ;
+}
+
+#All_leaves .hideme, .denied_list  .hideme, #accepted_leaves   .hideme{
+    display: inline-flex;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+#accepted_leaves .denied_list  .MuiButton-textPrimary  {
+    color:#D25252 ;
+}
+#accepted_leaves  .hideme.approve_btn, 
+#accepted_leaves  .hideme.deny_btn,
+#All_leaves .hideme.approved_btn
+{
+     display: none!important;
+}
+#All_leaves  .hideme.approve_btn, #All_leaves  .hideme.deny_btn{
+    display: inline-flex;
+}
+.denied_list{ 
+    align-items: flex-start!important ;
+}
+.denied_list h5{
+    padding: 0;
+    margin: 0;
+    margin-left: 30px;
+    margin-top: 10px;
+    color:white
+}
+/*daily attendance*/
+.right_side_div .lighter-text span{
+font-weight: normal;
+}
+.right_side_div {
+    max-width: 98px;
+   }
+
+.headerMain{
+    width: 85%!important;
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: left;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.align-right{
+    color: #262626;
+    font-weight: 700;
+}
+#employee_verification .MuiExpansionPanelDetails-root{
+    padding: 8px 0px 19px!important;
+}
+#employee_verification .MuiExpansionPanelDetails-root{
+    padding: 8px 0px 19px!important;
+}
+#employee_verification .MuiExpansionPanelSummary-root.Mui-expanded {
+    min-height: 48px;
+}
+#employee_verification .MuiExpansionPanelSummary-content.Mui-expanded {
+    margin: 7px 0;
+}
+.align-right-grey{
+    color:  #868686 ;
+    font-weight: normal;
+    
+    font-size: 14px
+}
