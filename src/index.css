@@ -145,6 +145,12 @@ font-weight: 500;}
 .greenClass  {
   color:  #8dc149;
 } 
+.greenClassBtn , #accepted_leaves .MuiButton-textPrimary{
+  color:#33aa3a!important  ;
+  }
+  .blackText{
+    color:black!important;
+  }
 .centerAlignedContent {   
   display: flex;
   flex-direction: column;
@@ -174,8 +180,33 @@ font-weight: 500;}
   
   min-width:150px!important;
 }
+.menu_hidden #approve_leaves_div .flexWrapParent.width-100 .wrappedListItem,
+.menu_hidden #approve_leaves_div  .flexWrapParent.width-100  .wrappedListItemTop{
+  flex-wrap: wrap;
+  flex: 103%!important;
+  
+  max-width:100%!important;
+}
+#All_leaves .hideme.approve_btn, #All_leaves .hideme.deny_btn {
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 500;
+}
+#All_leaves .hideme.deny_btn {
+display: inline-flex;
+color:#de3131;
+}
+#All_leaves .hideme.approve_btn {
+  display: inline-flex;
+  color:#33aa3a  ;
+  }
 
-
+#past_leaves_main #All_leaves .hideme,#past_leaves_main  .denied_list .hideme,#past_leaves_main  #accepted_leaves .hideme {
+    display: inline-flex;
+    text-align: right;
+    justify-content: flex-end;
+    width: 50%;
+}
 @media only screen and (max-width :1024px) {
  
 .wrappedListItem, .wrappedListItemTop {
@@ -183,10 +214,19 @@ font-weight: 500;}
   
   max-width:104px!important;
 }
+
 #daily-attendence .MuiListItem-root{
   flex-direction: column;
 }
-
+#All_leaves .hideme.approve_btn, #All_leaves .hideme.deny_btn {
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: normal;
+}
+#All_leaves .hideme.deny_btn {
+  display: inline-flex;
+  color:#de3131;
+}
 #daily-attendence .wrappedListItem,#daily-attendence  .wrappedListItemTop ,
 
 #daily-attendence .MuiListItemText-primary{
@@ -202,6 +242,28 @@ font-weight: 500;}
 #edit-green-cluster .flexWrapParent{
   flex-wrap: wrap;
 }
+#approve_leaves_div .flexWrapParent     {
+  flex-wrap: wrap;
+
+}
+ 
+.menu_shown  #All_leaves .hideme,
+.menu_shown   .denied_list .hideme,
+.menu_shown   #accepted_leaves .hideme{
+ 
+    flex-direction: column;
+}
+.menu_shown #approve_leaves_div .flexWrapParent {
+  flex-wrap: wrap;
+    max-width: 154px!important;  
+  word-break: break-word;
+}
+.menu_hidden  #approve_leaves_div .flexWrapParent {
+  flex-wrap: wrap;
+    max-width: 49%!important;  
+  word-break: break-word;
+}
+
   }
 .gridParent  {
   flex-grow: 1 1;
@@ -319,6 +381,17 @@ padding-left: 10px!important;
     flex: 0 0 53%!important;
     
     max-width:94px!important;
+
+  }
+  #approve_leaves_div  .wrappedListItem, .wrappedListItemTop {
+    flex: 0 0 53%!important;
+    
+    max-width:94px!important;
+
+  }
+  #approve_leaves_div .flexWrapParent     {
+    flex-wrap: wrap;
+
   }
   .flexWrapParent{
     flex-wrap: nowrap;
@@ -451,8 +524,26 @@ padding-left:20px;
     max-width:94px!important;
     min-width: 81px!important;
   }
-  
+  #approve_leaves_div  .MuiGrid-grid-sm-6 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+}
+  #approve_leaves_div .flexWrapParent     {
+    flex-wrap: wrap;
 
+  }
+  .menu_shown  #All_leaves .hideme,
+  .menu_shown   .denied_list .hideme,
+  .menu_shown   #accepted_leaves .hideme{
+   
+      flex-direction: column;
+  }
+  .menu_shown #approve_leaves_div .flexWrapParent {
+    flex-wrap: wrap;
+      max-width: 50%!important;  
+    word-break: break-word;
+  }
 }
 @media all and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
 
@@ -473,4 +564,11 @@ padding-left:20px;
     max-width:94px!important;
     min-width:104px!important;
   }
+  #approve_leaves_div .flexWrapParent.width-100 .wrappedListItem,
+  #approve_leaves_div  .flexWrapParent.width-100  .wrappedListItemTop{
+  flex-wrap: wrap;
+  flex: 103%!important;
+  
+  max-width:100%!important;
+}
 }

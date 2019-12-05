@@ -188,7 +188,7 @@ const GCListTeam = lazy(() => import('./innerPages/GreenCluster/greenClusterList
 const editGreenCluster = lazy(() => import('./innerPages/GreenCluster/editGreenCluster'));     
 
 const PastAttendance = lazy(() => import('./innerPages/attendance/past_daily_attendance'));  
-
+const PastLeaves = lazy(() => import('./innerPages/attendance/past_leaves'));  
     const routes = [
       {
         id: "1",
@@ -282,6 +282,12 @@ const PastAttendance = lazy(() => import('./innerPages/attendance/past_daily_att
      path: "/dashboard/PastAttendance/",
      exact: true,
      sidebar: PastAttendance,
+   },
+     {
+      id: "3",
+     path: "/dashboard/PastLeaves/",
+     exact: true,
+     sidebar: PastLeaves,
    }
     ];  
     return (
@@ -323,7 +329,9 @@ const PastAttendance = lazy(() => import('./innerPages/attendance/past_daily_att
         <div id="MenuItems"> <MainListItems  />  </div>
         <Divider />
       </Drawer>
-      <main className={classes.content}>
+      <main className={classes.content,(this.state.open == false) ?  (classes.content + " menu_hidden ") : (classes.content + " menu_shown ")}
+      
+      >
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container, classes.heightMax}>
           <Grid container spacing={3}>

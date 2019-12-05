@@ -6,7 +6,10 @@
     color: #1A8679;
 }
 #accepted_leaves  .MuiButton-textPrimary { 
-    color: #1A8679 ;
+    color: #33aa3a ;  font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
 }
 
 #All_leaves .hideme, .denied_list  .hideme, #accepted_leaves   .hideme{
