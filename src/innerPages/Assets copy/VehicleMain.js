@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText'; 
-
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
 
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -99,11 +99,12 @@ const useStyles = makeStyles(theme => ({
   },
   wrappedListItemTop: {
     fontWeight: '700',
-    flex: '0 0 53%'
+    flex: '0 0 53%',
+    minWidth:'200px'
   }
 }));
 
-export default function GCListlargeScreen() {
+export default function Vehicle() {
   const classes = useStyles();
 
   return (

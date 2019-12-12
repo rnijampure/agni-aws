@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import shantaBai from '../../images/shantaBai.png'; 
+import check from '../../images/check.png'; 
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import { withStyles } from '@material-ui/core/styles'; 
@@ -20,7 +21,7 @@ import { styles } from '../../commonStyles.js';
 import './team.css';
 
 
-  
+ 
 /* const DialogTitle = withStyles(makeStyles)(props => {
  
   //let classes = useStyles();
@@ -69,16 +70,16 @@ class EmployeeVerificationDialog extends React.Component {
 
 
 
-      <Dialog open={this.props.open}
+      <Dialog open={this.props.open} id="employee-verify-dialog" 
         maxWidth={this.state.maxWidth} onClose={this.props.justClose} aria-labelledby="form-dialog-title" fullScreen={this.fullScreen}
       >
-        <DialogTitle id="customized-dialog-title"onClose={this.handleClose}>Employee Verification
-        <IconButton aria-label="close" className={classes.closeButton + "   border-bottom-gery  " } onClick={this.props.justClose}>
+        <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>Employee Verification
+        <IconButton aria-label="close" className={classes.closeButton} onClick={this.props.justClose}>
           <CloseIcon />
         </IconButton>
          </DialogTitle>
-        <Paper className={[classes.paper + classes.nobackground].join( ' ' )}>
-          <Grid container spacing={3}>
+        <Paper className={[classes.paper + classes.nobackground + " employer_verify_dialog_body margin-top-10"  ].join( ' ' )}>
+          <Grid container spacing={3} className={[classes.paper + classes.nobackground + " employer_verify_dialog_body margin-top-10 border-bottom-gery margin-bottom-ten padding-bottom-10"  ].join( ' ' )} >
 
             <Grid item>
               <img className={classes.img} alt="complex" src={shantaBai} />
@@ -86,7 +87,7 @@ class EmployeeVerificationDialog extends React.Component {
             </Grid>
             <Grid item xs={12} sm container>
               <Grid item xs container direction="column" spacing={2}>
-                <Grid item xs>
+                <Grid item xs className={ "  space-vertically-even  "}>
                   <Typography variant="body2" gutterBottom >
                     <strong>  Name</strong>:      Shanta Bai - 1234ABC
                 </Typography>
@@ -170,7 +171,7 @@ class EmployeeVerificationDialog extends React.Component {
   color="primary"
   className={classes.submit}      onClick={this.props.handleClose}
 >
-  CREATE
+  APPOINT
 </Button>
 <Hidden mdUp>
   <Button

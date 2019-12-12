@@ -22,7 +22,7 @@ class LeaveRequests extends React.Component {
       LeaveReqList: [1, 2, 3, 4, 5],
       ApproveReqList: [1],
       DeniedList: [],
-      leaveStatus: "APPROVED"
+      leaveStatus: "APPROVED", 
     }
 
   }

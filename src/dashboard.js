@@ -11,7 +11,30 @@ import Grid from '@material-ui/core/Grid';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'; 
 import  MainListItems   from './listItems';
-import ResourcesListMain from './innerPages/resources/ResourcesListMain';
+
+import ResourcesListMain from './innerPages/resources/ResourcesListMain'; 
+import CreateTeam from './innerPages/team/createTeam'; 
+import TeamListMain  from './innerPages/team/teamListMain' ;
+import GreenCluster  from './innerPages/GreenCluster/createGreenClusters' ; 
+import employeeVerMain  from './innerPages/Employees/EmployeeVerification' ;
+import Attendance  from './innerPages/attendance/attendance' ; 
+import DailyAttendance  from './innerPages/attendance/daily_attendance' ; 
+import PointList  from './innerPages/points/pointList' ;  
+import Vehicle  from './innerPages/vehicle/VehicleMain' ;  
+import DriverMain  from './innerPages/vehicle/driverMain' ;  
+import LoadMain  from './innerPages/loads/LoadMain' ;    
+import VendorRequests  from './innerPages/loads/verdorRequests' ;    
+import GCListTeam  from './innerPages/GreenCluster/greenClusterListTeam' ;     
+import editGreenCluster  from './innerPages/GreenCluster/editGreenCluster' ;    
+import Collections  from './innerPages/Collections/collection' ;
+import PastAttendance  from './innerPages/attendance/past_daily_attendance' ; 
+import PastLeaves  from './innerPages/attendance/past_leaves' ; 
+import SpecialRequest  from './innerPages/Collections/SpecialRequest' ;
+import Assets  from './innerPages/Assets/AssetList' ; 
+import RegisterVehicle  from './innerPages/Assets/register_vehicles' ; 
+import EditVehicle  from './innerPages/Assets/edit_vehicle' ; 
+import driverLoad  from './innerPages/Assets/driverLoad' ; 
+import GetPoints  from './innerPages/points/getPoints' ;  
 import { withStyles } from '@material-ui/styles';
 import {
  
@@ -165,30 +188,21 @@ class Dashboard extends React.Component {
 
    handleDrawerOpen = () => {
     this.setState({ open: true });
+   
+     this.props.match.params.open = true;
   };
    handleDrawerClose = () => { 
     this.setState({ open: false });
+    this.props.match.params.open = false;
   }; 
-  render() {
-    const { classes } = this.props;
+  data = ( ) => {
+    this.props.match.params.open= this.state.open;
+    } 
  
-const CreateTeam = lazy(() => import('./innerPages/team/createTeam'));
-const TeamListMain = lazy(() => import('./innerPages/team/teamListMain'));
-const GreenCluster = lazy(() => import('./innerPages/GreenCluster/createGreenClusters'));
-const GCListMain = lazy(() => import('./innerPages/GreenCluster/greenClusterListMain'));
-const employeeVerMain = lazy(() => import('./innerPages/team/employeeVerificationMain')); 
-const Attendance = lazy(() => import('./innerPages/attendance/attendance'));  
-const DailyAttendance = lazy(() => import('./innerPages/attendance/daily_attendance'));  
-const PointList = lazy(() => import('./innerPages/points/pointList'));   
-const Vehicle = lazy(() => import('./innerPages/vehicle/VehicleMain'));   
-const DriverMain = lazy(() => import('./innerPages/vehicle/driverMain'));   
-const LoadMain = lazy(() => import('./innerPages/loads/LoadMain'));     
-const VendorRequests = lazy(() => import('./innerPages/loads/verdorRequests'));     
-const GCListTeam = lazy(() => import('./innerPages/GreenCluster/greenClusterListTeam'));      
-const editGreenCluster = lazy(() => import('./innerPages/GreenCluster/editGreenCluster'));     
+  render() {
+    const { classes} = this.props;  
+  
 
-const PastAttendance = lazy(() => import('./innerPages/attendance/past_daily_attendance'));  
-const PastLeaves = lazy(() => import('./innerPages/attendance/past_leaves'));  
     const routes = [
       {
         id: "1",
@@ -200,7 +214,8 @@ const PastLeaves = lazy(() => import('./innerPages/attendance/past_leaves'));
         id: "2",
         path: "/dashboard/GCListTeam",
         exact: true,
-        sidebar: GCListMain,
+        sidebar: GCListTeam,
+        open : this.state.open
       }
       ,
       {
@@ -208,6 +223,8 @@ const PastLeaves = lazy(() => import('./innerPages/attendance/past_leaves'));
         path: "/dashboard/CreateTeam/",
         exact: true,
         sidebar: CreateTeam,
+        
+        open : this.state.open
       },
       {
         id: "3",
@@ -229,6 +246,12 @@ const PastLeaves = lazy(() => import('./innerPages/attendance/past_leaves'));
         path: "/dashboard/Leave_Requests/",
         exact: true,
         sidebar: Attendance,
+      },
+      {
+        id: "3",
+        path: "/dashboard/getPoints/",
+        exact: true,
+        sidebar: GetPoints,
       },
       {
         id: "3",
@@ -288,8 +311,45 @@ const PastLeaves = lazy(() => import('./innerPages/attendance/past_leaves'));
      path: "/dashboard/PastLeaves/",
      exact: true,
      sidebar: PastLeaves,
+   },
+     {
+      id: "3",
+     path: "/dashboard/Collections/",
+     exact: true,
+     sidebar: Collections,
    }
+   ,
+     {
+      id: "3",
+     path: "/dashboard/specialRequest/",
+     exact: true,
+     sidebar: SpecialRequest,
+   }
+   ,
+     {
+      id: "3",
+     path: "/dashboard/Assets/",
+     exact: true,
+     sidebar: Assets,
+      },
+     {
+      id: "3",
+     path: "/dashboard/RegisterVehicle/",
+     exact: true,
+     sidebar: RegisterVehicle,
+     
+     open : this.state.open
+     },
+     {
+      id: "3",
+     path: "/dashboard/edit_vehicle",
+     exact: false,
+     sidebar: EditVehicle,
+     
+     open : this.state.open
+     }
     ];  
+
     return (
       <React.Fragment>
     <div className={classes.root}>
@@ -339,22 +399,13 @@ const PastLeaves = lazy(() => import('./innerPages/attendance/past_leaves'));
             <Grid item xs={12} md={12} lg={12}>
             <Suspense fallback={<div>Loading...</div>}>
               <Switch>
-                {routes.map((route, index, history) => (
-                  //      <List><MainListItems></MainListItems></List>
-                  // You can render a <Route> in as many places
-                  // as you want in your app. It will render along
-                  // with any other <Route>s that also match the URL.
-                  // So, a sidebar or breadcrumbs or anything else
-                  // that requires you to render multiple things
-                  // in multiple places at the same URL is nothing
-                  // more than multiple <Route>s.
-                  <Route
-                    key={index}
-                    path={route.path}
-                    exact={route.exact}
-                    component={route.sidebar}
-                    history={history}
-                    />
+                {routes.map((route, index, history,props) => (
+   <Route
+   key={index}
+   path={route.path} 
+   component={route.sidebar} 
+   history={history}    {...props} 
+   />
                 ))}
               </Switch>
               </Suspense>

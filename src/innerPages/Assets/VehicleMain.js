@@ -99,7 +99,8 @@ const useStyles = makeStyles(theme => ({
   },
   wrappedListItemTop: {
     fontWeight: '700',
-    flex: '0 0 53%'
+    flex: '0 0 53%',
+    minWidth:'200px'
   }
 }));
 
@@ -113,7 +114,7 @@ export default function Vehicle() {
 
           <Grid item xs={12} sm={6}>
             <Paper className={classes.alignLeft, classes.topPaper}>
-              <h1 className="{ main_heading-text }">     Request122</h1> </Paper>
+              <h1 className="{ main_heading-text }">     Request</h1> </Paper>
           </Grid>
           <Grid item xs={12} sm={6}>
             <Paper className={classes.topPaper}>
@@ -144,7 +145,7 @@ export default function Vehicle() {
               <ListItem className={classes.flexWrapParent} >
 
                 <ListItemText primary=" JCB Garbage Collector" className={ " wrappedListItemTop "} />
-                <ListItemText primary="KA 0123" className={classes.wrappedListItem} />
+                <ListItemText primary="KA 01" className={classes.wrappedListItem} />
               </ListItem>
 
               <ListItem  >

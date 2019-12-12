@@ -312,15 +312,15 @@ class GCListTeam extends React.Component {
       <Paper className={classes.rootOne}>
         <List component="nav" className={classes.rootOne} aria-label="mailbox folders">
           <ListItem    variant="raised">
-            <ListItemText className={ " headingText " }  primary="Green Cluster" />
+            <ListItemText className={ "alignLeft headingText  " }  primary="Green Cluster" />
           </ListItem>
           
            
-          <ListItem  className={ " alignCenter " }>
+          <ListItem  className={ " alignCenter  " }>
             <ListItemText className={ " headingText " }  primary="Feed Team" />
           </ListItem>
         
-          <ListItem  className={ " alignCenter " } >
+          <ListItem  className={ " alignCenter  " } >
             <ListItemText className={ " headingText " }  primary="Driver" />
           </ListItem>
           

@@ -2,8 +2,7 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import DashboardIcon from '@material-ui/icons/Dashboard'; 
 import PeopleIcon from '@material-ui/icons/People';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
@@ -15,14 +14,12 @@ import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'; 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PropTypes from 'prop-types';
 import {
   withRouter, NavLink,
-} from "react-router-dom";
-import { Link, IndexLink } from 'react-router'
+} from "react-router-dom"; 
 
 
 
@@ -39,7 +36,7 @@ class MainListItems extends React.Component {
   }
 
   setActive(obj) {
-    console.log(obj.props.to)
+   // console.log(obj.props.to)
   }
 
   // dont use setState in constructor, initialize state instead
@@ -48,11 +45,11 @@ class MainListItems extends React.Component {
 
     if (typeof path == "object") {
       if (path.indexOf(mypath) !== -1) {
-        console.log(mypath === path ? 'active-nav-link-main' : ' '+ "here");
+     //   console.log(mypath === path ? 'active-nav-link-main' : ' '+ "here");
         return "active-nav-link-main";
 
       } else {
-        console.log(mypath+ "there");
+   //     console.log(mypath+ "there");
         return mypath === path ? 'active-nav-link-main' : ' ';
       }
     }
@@ -71,7 +68,49 @@ class MainListItems extends React.Component {
 
     return (
       <React.Fragment>
+ <ExpansionPanel>
+          <ExpansionPanelSummary
+            className={this.getNavStyles(["/dashboard/Collections/"]) + " single-link "}
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+ 
+           <NavLink to="/dashboard/Collections/" activeClassName="active-nav-link"  >
+          <ListItemIcon>
+            <DashboardIcon />
+          </ListItemIcon>
 
+         
+          <ListItemText className={"primary-heading"} primary="COLLECTION" />
+          </NavLink>
+         
+          
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <List>
+            <ListItem button>
+                <NavLink to="/dashboard/Collections/" activeClassName="active-nav-link"  >
+                  <ListItemIcon>
+                    <GroupAddIcon />
+                  </ListItemIcon>
+                  <ListItemText className={"inset-heading"} primary="Collections" />
+                </NavLink>
+              </ListItem>
+              <ListItem button>
+                <NavLink to="/dashboard/specialRequest/" activeClassName="active-nav-link"  >
+                  <ListItemIcon>
+                    <GroupAddIcon />
+                  </ListItemIcon>
+                  <ListItemText className={"inset-heading"} primary="Special Request" />
+                </NavLink>
+              </ListItem>
+           
+
+            </List>
+
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
         <List className={this.getNavStyles(["/dashboard/GCListTeam/","/dashboard/GCListTeam"]) + " single-link "} >
            <NavLink to="/dashboard/GCListTeam/" activeClassName="active-nav-link"  >
           <ListItemIcon>
@@ -84,7 +123,7 @@ class MainListItems extends React.Component {
         </List>
         <ExpansionPanel>
           <ExpansionPanelSummary
-            className={this.getNavStyles(["/dashboard/Attendance/", "/dashboard/Leave_Requests/","/dashboard/CreateTeam/", "/dashboard/Teams/", "/dashboard/EmployeeVerification"]) + " single-link "}
+            className={this.getNavStyles(["/dashboard/Attendance/","/dashboard/PastAttendance/" ]) + " single-link "}
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
             id="panel2a-header"
@@ -104,14 +143,7 @@ class MainListItems extends React.Component {
           <ExpansionPanelDetails>
             <List>
 
-              <ListItem button>
-                <NavLink to="/dashboard/CreateTeam/" activeClassName="active-nav-link"  >
-                  <ListItemIcon>
-                    <GroupAddIcon />
-                  </ListItemIcon>
-                  <ListItemText className={"inset-heading"} primary="Create Team" />
-                </NavLink>
-              </ListItem>
+          
               <ListItem button  >
                 <NavLink to="/dashboard/Teams/" activeClassName="active-nav-link" >
                   <ListItemIcon>
@@ -150,6 +182,51 @@ class MainListItems extends React.Component {
 
           </ExpansionPanelDetails>
         </ExpansionPanel>
+      
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            className={this.getNavStyles(["dashboard/EmployeeVerification","/dashboard/Leave_Requests/"]) + " single-link "}
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+ 
+           <NavLink to="dashboard/EmployeeVerification" activeClassName="active-nav-link"  >
+          <ListItemIcon>
+            <DashboardIcon />
+          </ListItemIcon>
+
+         
+          <ListItemText className={"primary-heading"} primary="EMPLOYEES" />
+          </NavLink>
+         
+          
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <List>
+
+          
+ 
+              <ListItem button  >
+                <NavLink to="/dashboard/EmployeeVerification" activeClassName="active-nav-link" >
+                  <ListItemIcon>
+                    <VerifiedUserIcon />
+                  </ListItemIcon>
+                  <ListItemText className={"inset-heading"} primary="Employees" />
+                </NavLink>
+              </ListItem>
+              <ListItem button  >
+                <NavLink to="/dashboard/Leave_Requests/" activeClassName="active-nav-link" >
+                  <ListItemIcon>
+                    <WorkOffIcon />
+                  </ListItemIcon>
+                  <ListItemText className={"inset-heading"} primary="Leave Requests" />
+                </NavLink>
+              </ListItem> 
+             </List>
+
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
         <ExpansionPanel>
           <ExpansionPanelSummary
             className={"primary-heading"}
@@ -171,14 +248,11 @@ class MainListItems extends React.Component {
                   <ListItemIcon>
                     <AccountBalanceWalletIcon />
                   </ListItemIcon>
-                  <ListItemText className={"inset-heading"} primary="View Points" />
+                  <ListItemText className={"inset-heading"} primary="Points Transactions" />
                 </NavLink>
               </ListItem>
 
-              <ListItem style={{ borderBottom: '1px dashed white' }}>
-
-                <Divider />
-              </ListItem>
+     
             </List>
 
           </ExpansionPanelDetails>

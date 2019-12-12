@@ -69,34 +69,7 @@ class editGreenCluster extends React.Component {
  
 
  addToSelectedDateList(day, index, values ) {
-  //this.props.validate(values)
-  //this.props.handleBlur(values)
-
-  // if (this.props.props.values.days.indexOf(day) < 0) { 
-  //     this.props.props.values.days.push(day);
-  //     this.state.theArray.push(index);
-  //     this.setState({
-  //         theArray: this.state.theArray
-  //     })
  
-  
-  //     //  setTheArray([...theArray, index]);   
-  // }
-  // else {
-  //     this.props.props.values.days.pop(day);
-  //     this.state.theArray.pop(index);
-  //     this.setState({
-  //         theArray: this.state.theArray,
-  //     })
-      //   
-     // console.log(this.state.theArray)
-      //   setTheArray(theArray.splice(index,1));  
-
-      //  
-      //  selectedDay(value => index); 
-
-  //}
-
 
 };
 
@@ -317,8 +290,8 @@ const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
 
         </Grid>
       </Paper>
-      { (this.state.openTeam) == true &&   <AssignFeederTeams props={this.state}  handleDrawerTeamClose={this.handleDrawerTeamClose}/>}
-       { (this.state.openDriver) == true &&   <AssignDriver props={this.state}  handleDrawerClose={this.handleDrawerClose}/>}
+      { (this.state.openTeam) == true &&   <AssignFeederTeams open={this.state.openTeam}  handleDrawerTeamClose={this.handleDrawerTeamClose}/>}
+       { (this.state.openDriver) == true &&   <AssignDriver open={this.state.openDriver}  handleDrawerClose={this.handleDrawerClose}/>}
  
     </React.Fragment>
   );

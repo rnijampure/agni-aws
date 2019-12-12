@@ -42,10 +42,10 @@ class PastLeaves extends React.Component {
 
 
   };
-  showPastAttendance = () => { 
-    this.props.history.push("/dashboard/PastAttendance");
-  };
+  searchPastAttendace() {
 
+  }
+  
   handleFocus(event) {
     event.target.focus()
   }
@@ -189,7 +189,7 @@ class PastLeaves extends React.Component {
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={2} className={" alignRight "}>
-                <Button variant="contained" color="primary" >
+                <Button variant="contained" color="primary" onClick={this.searchPastAttendace()}>
                   SUBMIT
       </Button>
                 <img className={classes.img + "  position-absolute "} alt="complex" src={spinner} />

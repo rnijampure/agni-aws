@@ -15,18 +15,18 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core';
-import { styles } from '../../commonStyles.js';
-import './team.css';
+import { styles } from '../../commonStyles.js'; 
 import spinner from '../../images/Spinner-1s-60px.gif';
-
+import RequestDatenTime from './RequestDatenTime';
 import arrow from '../../images/arrow-back.png';
 
-class PastLeaves extends React.Component {
+class SpecialRequest extends React.Component {
 
 
   constructor(props) {
     super(props);
     this.state = {
+      open:false,
       selectedStartDate: this.GetFormattedDate(new Date('2019-08-18T21:11:54')),
       selectedEndDate: this.GetFormattedDate(new Date('2019-08-18T21:11:54')),
       LeaveReqList: [1, 2, 3, 4, 5],
@@ -35,17 +35,20 @@ class PastLeaves extends React.Component {
       leaveStatus: "APPROVED"
     }
     this._nodes = new Map()
-    this._handleClick = this.handleClick.bind(this);
-
-
-
-
+ 
+    this.handleDrawerOpen = this.handleDrawerOpen.bind(this)  ;
 
   };
-  showPastAttendance = () => { 
-    this.props.history.push("/dashboard/PastAttendance");
-  };
+  searchPastAttendace() {
 
+  }
+  
+  handleDrawerOpen = (e) => {
+    e.stopPropagation();
+    this.setState({ open: true,  
+     });
+  };
+  
   handleFocus(event) {
     event.target.focus()
   }
@@ -127,7 +130,7 @@ class PastLeaves extends React.Component {
     return (<React.Fragment>
 
 
-      <div id="past_leaves_main">
+      <div id="special_request_main">
 
 
         <Grid container spacing={3}>
@@ -136,7 +139,7 @@ class PastLeaves extends React.Component {
 
               <Grid item xs={12} sm={6}>
                 <Paper className={[classes.alignLeft, classes.topPaper].join(' ')}>
-                  <h1 className="{ main_heading-text }" onClick={this.props.history.goBack} >  <img className={classes.img} alt="Back" src={arrow} />  Past   Leave</h1> </Paper>
+                  <h1 className="{ main_heading-text }" onClick={this.props.history.goBack} >   Special Request</h1> </Paper>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Paper className={classes.topPaper}>
@@ -189,7 +192,7 @@ class PastLeaves extends React.Component {
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={2} className={" alignRight "}>
-                <Button variant="contained" color="primary" >
+                <Button variant="contained" color="primary" onClick={this.searchPastAttendace()}>
                   SUBMIT
       </Button>
                 <img className={classes.img + "  position-absolute "} alt="complex" src={spinner} />
@@ -202,7 +205,7 @@ class PastLeaves extends React.Component {
               <Grid item xs={12}>
                 <Paper className={[classes.alignLeft, classes.nobackground + " flexAlignLeft  padding-bottom-0 "].join(' ')}>
                   <List component="nav" className={classes.root + " width-100  padding-left-0 flexAlignLeft"} >
-                    <ListItem className={" flexWrapParent  flexAlignLeft"}  >
+                    <ListItem className={"    flexAlignLeft"}  >
                       <ListItemText primary={dateRange} className={"  flexAlignLeft  "} />
                     </ListItem>
                   </List>
@@ -214,33 +217,29 @@ class PastLeaves extends React.Component {
             </Grid>
           </div>
           <Grid container spacing={2} id="approve_leaves_div">
-          <Grid item id="All_leaves" xs={12} sm={6}>
+          <Grid item id="All_leaves" xs={12} sm={10}>
 
-            <Paper className={[classes.paper, classes.topPaper  + "  alignLeft  blackText"].join(' ')}>    Approved Requests ({this.state.ApproveReqList.length })
+            <Paper className={[classes.paper, classes.topPaper  + "  alignLeft  greyText"].join(' ')}>  Green Cluster
  
 
             </Paper>
             {this.state.ApproveReqList.map((el, i) => (
-              <Paper key={i} className={classes.paper} id={i} ref={c => this._nodes.set(i, c)} >
-                <Tooltip title="Leave Approved    " aria-label="add">
+              <Paper key={i} className={classes.paper} id={i}  ref={c => this._nodes.set(i, c)} onClick={e => this.handleDrawerOpen(e,  i)}  >
+                <Tooltip title="Special Request " aria-label="add">
                   <List component="nav"  className={classes.root + "  border-bottom-gery  "}  aria-label="mailbox folders" >
                   <ListItem   className={" flexWrapParent    " }  >
-                      <ListItemText primary="ID and Name" className={" wrappedListItemTop alignLeft"} />
-                      <ListItemText primary="12 wed 2019" className={" wrappedListItem  greyText alignLeft "} />
+                      <ListItemText primary="User Name" className={" wrappedListItemTop alignLeft"} />
+                      <ListItemText primary="Phone Number" className={" wrappedListItem  greyText alignLeft "} />
                     </ListItem>
-                    <ListItem className={"hideme "} >
-                      <Button color="primary" disabled className={["  approved_btn approval_status greenClassBtn" ].join(' ')}>
-                        APPROVED
-</Button>
-              
-                      
+                    <ListItem   className={" flexWrapParent   white-space-nowrap  " }  >
+                      <ListItemText primary="Requested Date: 10/12/2020" className={" wrappedListItemTop alignLeft"} />
+                      <ListItemText primary="Requested Time:10 AM" className={" wrappedListItem  greyText alignLeft "} />
                     </ListItem>
                   </List>
                 </Tooltip>
                 <List component="nav" className={classes.root + "  border-bottom-gery  "} aria-label="Approve Reject Leaves">
-                    <ListItem   className={" flexWrapParent   width-100 " }  >
-                      <ListItemText primary="Team and Cluster" className={" wrappedListItemTop greyText alignLeft"} />
-                      <ListItemText primary="Reason" className={" wrappedListItem  greyText alignLeft "} />
+                    <ListItem   className={"  width-100 " }  >
+                      <ListItemText primary="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's " className={"  alignLeft"} /> 
                     </ListItem>
                     <ListItem className={"hideme "} >
  
@@ -261,54 +260,15 @@ class PastLeaves extends React.Component {
             }
           </Grid>
 
-          <Grid item id="All_leaves" xs={12} sm={6}>
-            <Paper className={[classes.paper, classes.topPaper  + "  alignLeft  blackText"].join(' ')}> Denied Leaves ( {this.state.DeniedList.length})  </Paper>
          
-            {this.state.DeniedList.map((el, i) => (
-
-
-<Paper key={i} className={" denied_list " + classes.paper} id={i} ref={c => this._nodes.set(i, c)} onClick={e => this.handleClick(e, i)}
->
-
-  <Tooltip title="Leave Rejected" aria-label="add">
-  <List component="nav"  className={classes.root + "  border-bottom-gery  "}  aria-label="mailbox folders" >
-                  <ListItem   className={" flexWrapParent    " }  >
-                      <ListItemText primary="ID and Name" className={" wrappedListItemTop alignLeft"} />
-                      <ListItemText primary="12 wed 2019" className={" wrappedListItem  greyText alignLeft "} />
-                    </ListItem>
-      <ListItem className={"hideme "} >
-        <Button color="primary"   className={ " hideme  approval_status deny_btn " }>
-          REJECTED
-</Button>
-      
-   
-      </ListItem>
-
-    </List>
-  </Tooltip>
-  
-  <List component="nav" className={classes.root + "  border-bottom-gery  "} aria-label="Approve Reject Leaves">
-                    <ListItem   className={" flexWrapParent   width-100 " }  >
-                      <ListItemText primary="Team and Cluster" className={" wrappedListItemTop greyText alignLeft"} />
-                      <ListItemText primary="Reason" className={" wrappedListItem  greyText alignLeft "} />
-                    </ListItem>
-                    <ListItem className={"hideme "} >
- 
-                    </ListItem>
-
-                  </List>
-</Paper>
-
-))}
-          </Grid>
-
         </Grid>
       </Grid>
 
       </div>
 
 
-
+      { (this.state.open) == true &&   <RequestDatenTime props={this.state}   handleDrawerClose={this.handleDrawerClose}/>}
+     
 
 
 
@@ -317,4 +277,4 @@ class PastLeaves extends React.Component {
   }
 }
 
-export default withStyles(styles)(PastLeaves); 
+export default withStyles(styles)(SpecialRequest); 

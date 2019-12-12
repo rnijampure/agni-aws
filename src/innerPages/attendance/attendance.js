@@ -26,7 +26,9 @@ class Attendance extends React.Component {
     node.style.background = "red";
   }
 
-
+  showPastLeaves = () => { 
+    this.props.history.push("/dashboard/PastLeaves");
+  };
 
   render() {
     const { classes } = this.props;
@@ -40,7 +42,7 @@ class Attendance extends React.Component {
           </Grid>
           <Grid item xs={12} sm={6}>
             <Paper className={classes.topPaper}>
-              <Button variant="outlined" color="primary" onClick={() => this.showPastAttendance()}>
+              <Button variant="outlined" color="primary" onClick={() => this.showPastLeaves()}>
                 PAST LEAVE
       </Button>
 

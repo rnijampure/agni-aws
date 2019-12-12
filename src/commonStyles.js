@@ -13,7 +13,9 @@ import { makeStyles } from '@material-ui/core/styles';
     MuiButton:{
       "fontSize": 14,
      
-    },
+    }, 
+   
+   ".MuiOutlinedInput-input":{"fontSize": 16},
     ".MuiButton-outlinedPrimary":{
       "fontSize": 14,
   fontWeight: '500'  , 
@@ -377,6 +379,11 @@ marginTop:'4px',
     maxWidth: '30px'
   }, 
 
+  seperatorDiv :{
+    height: '5px',
+    padding : '0',
+    margin : '0'
+  },
   nobackground:{
       
     background: 'none',
@@ -392,4 +399,57 @@ marginTop:'4px',
       borderBottom: '1px solid #f2f2f2'
     }
   } 
-}) 
+  ,
+  search: {
+    position: 'relative',
+    borderRadius: '32px',
+    backgroundColor: '#dcdcdc!important',
+    '&:hover': {
+      backgroundColor: '#dcdcdc!important',
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+      maxWidth: '479px',
+      float: 'right'
+    },
+  },
+  searchIcon: {
+    width: theme.spacing(7),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    opacity: '0.5',
+    fontSize: '16px',
+    fontWeight: '500' ,
+    color:'#000000',
+    [theme.breakpoints.up('sm')]: {
+      width: 400,
+      '&:focus': {
+        width: 300,
+      },
+    },
+  }, 
+  marginbottom15: {
+    marginBottom: '15px',
+    marginTop: '15px  '
+  },
+  ".MuiFormLabel-root":{
+    "fontSize": 16,
+ }
+, 
+}) ;
+ 

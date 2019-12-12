@@ -136,9 +136,11 @@ font-weight: 500;}
 
 }
 /*common styles*/
-
+.white-space-nowrap{
+  white-space: nowrap;
+}
 .greyText{
-  color: #868686;
+  color: #868686!important;
   font-weight: normal;
   font-size: 16px;
 }
@@ -163,8 +165,7 @@ font-weight: 500;}
 .headingText{
   font-size: 12px;
 }
-
-
+ 
 .flexWrapParent{
   flex-wrap : wrap;
 } 
@@ -253,16 +254,44 @@ color:#de3131;
  
     flex-direction: column;
 }
-.menu_shown #approve_leaves_div .flexWrapParent {
+.menu_shown   .flexWrapParent {
   flex-wrap: wrap;
     max-width: 154px!important;  
   word-break: break-word;
+  white-space: normal;
 }
-.menu_hidden  #approve_leaves_div .flexWrapParent {
+ .menu_shown  #special_request_main .flexWrapParent {
+  flex-wrap: wrap;
+    max-width: 259px!important;  
+  word-break: break-word;
+  white-space: normal;
+}
+.menu_hidden   .flexWrapParent {
   flex-wrap: wrap;
     max-width: 49%!important;  
   word-break: break-word;
 }
+
+ .menu_hidden #collections_div  .flexWrapParent {
+  flex-wrap: wrap;
+    max-width: 64%!important;  
+  word-break: break-word;
+}
+ .menu_shown #collections_div  .flexWrapParent {
+  flex-wrap: nowrap;
+  max-width: 125px!important;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+ .menu_shown #collections_div .MuiDivider-root{
+  margin: 6px;
+}
+.menu_shown #employee_verification_main  .flexWrapParent,
+.menu_hidden #employee_verification_main  .flexWrapParent{
+  max-width: 185px!important;
+  white-space:  normal;
+ }
+
 
   }
 .gridParent  {
@@ -301,14 +330,27 @@ color:#de3131;
   text-align:  center;
 }
 .maxWidth150 {
-  max-width:  150px;
+  max-width:  150px!important;
 }
 .maxWidth100 {
-  max-width:  100px;
+  max-width:  100px!important;
 }
 .maxWidth84 {
   max-width: 84px!important;
 }
+#employee_sorter ,#employee_sorter .MuiList-padding,
+#employee_sorter .MuiListItem-gutters{
+padding: 0!important;
+}
+
+#employee_sorter .MuiPaper-rounded{
+  padding-top: 0!important;
+}
+
+#employee_sorter .MuiDivider-vertical {
+  min-height: 22px;
+}
+
 .bottomAlignContent   {
   display:  flex;
   justify-content:  flex-end;
@@ -322,12 +364,72 @@ color:#de3131;
   flex-direction: column;
 
 } 
+
 .padding-left-15{
   padding-left : 20px; 
+}
+.padding-left-16{
+  padding-left : 16px!important; 
+}
+.padding-left-30{
+  padding-left : 30px!important; 
 }
 .padding-left-0{
   padding-left : 0px!important; 
 }
+.padding-10{
+  padding : 10px!important; 
+}
+
+.margin-bottom-5{
+  margin-bottom: 5px;
+}
+.margin-10{
+  margin : 10px!important; 
+}
+.margin-0-17 {
+  margin: 0 17px!important;
+}
+.margin-bottom-ten{
+  margin-bottom: 10px!important;
+}
+.padding-top-0{
+padding-top: 0!important;
+}
+.padding-bottom-0{
+  padding-bottom: 0!important;
+  }
+  .padding-bottom-10{
+  padding-bottom: 10!important;
+  }
+  .padding-bottom-30{
+    padding-bottom: 30!important;
+    }
+  .padding-top-24{
+    padding-top: 24px!important;
+    }
+    .margin-top-10{
+      margin-top:10px;
+    }
+      
+      .margin-top-30{
+      margin-top:30px;
+    }
+    .margin-top-40{
+      margin-top:40px;
+    }
+    .width-100{
+      min-width: 100%!important;
+    }
+    .padding-left-24{
+      padding-left:24px!important;
+    }
+    .padding-left-20{
+    padding-left:20px;
+    }
+    .padding-left-10{
+      padding-left:10px!important;
+      }
 .active-nav-link-main{
   background:#152440!important;
   color: white!important;  border-left:2px solid #fff!important; 
@@ -375,6 +477,7 @@ padding-left: 10px!important;
 .min-width-150 {
   min-width:150px!important;
 }
+ 
 @media only screen and (max-width :768px) {
  
   .wrappedListItem, .wrappedListItemTop {
@@ -409,6 +512,7 @@ padding-left: 10px!important;
   min-width: 104px!important;
 }
     }
+
 .displayInlineBlock{
   display: inline-block!important;
 }
@@ -437,12 +541,6 @@ border:1px solid #3a6eff;
 .headerText{ 
   flex: 100%!important;
 }
-.margin-bottom-5{
-  margin-bottom: 5px;
-}
-.margin-bottom-ten{
-  margin-bottom: 10px!important;
-}
 .backButton{
   margin-top: 30px;
   color:black!important;
@@ -458,12 +556,11 @@ text-align: left;
 font-weight: normal;
 color: black;
 }
-.padding-top-0{
-padding-top: 0!important;
-}
-.padding-bottom-0{
-  padding-bottom: 0!important;
-  }
+
+    .line-hight-35{
+      line-height: 35px;
+    }
+    
 #daily-attendence .MuiList-root{
   width: 50%;
   display: inline-flex;
@@ -473,26 +570,6 @@ padding-top: 0!important;
 }  
 
 
-  
-  .margin-top-30{
-  margin-top:30px;
-}
-.margin-top-40{
-  margin-top:40px;
-}
-.width-100{
-  min-width: 100%!important;
-}
-.padding-left-24{
-  padding-left:24px!important;
-}
-.padding-left-20{
-padding-left:20px;
-}
-.line-hight-35{
-  line-height: 35px;
-}
-
 .position-absolute{
   position: absolute;
 }
@@ -500,8 +577,16 @@ padding-left:20px;
   justify-content: left;
   align-self: flex-start;
 }
+.justify-flex-right{
+  justify-content: flex-end!important;
+}
+ .align-self-flex-end{
+align-self: flex-end;}
 #daily-attendence .MuiInputBase-input.MuiInput-input{
   width:109px;
+}
+.MuiOutlinedInput-input{
+  padding: 14px!important;
 }
 
 @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
@@ -544,9 +629,20 @@ padding-left:20px;
       max-width: 50%!important;  
     word-break: break-word;
   }
+  .gridParent .MuiGrid-grid-sm-6 {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }
 @media all and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
-
+ .menu_hidden #employee_verification_main  .MuiGrid-grid-sm-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+}
   .wrappedListItem, .wrappedListItemTop {
     flex: 0 0 53%!important;
     
@@ -564,11 +660,140 @@ padding-left:20px;
     max-width:94px!important;
     min-width:104px!important;
   }
-  #approve_leaves_div .flexWrapParent.width-100 .wrappedListItem,
-  #approve_leaves_div  .flexWrapParent.width-100  .wrappedListItemTop{
+  .flexWrapParent.width-100 .wrappedListItem,
+  .flexWrapParent.width-100  .wrappedListItemTop{
   flex-wrap: wrap;
   flex: 103%!important;
   
   max-width:100%!important;
 }
+.gridParent .MuiGrid-grid-sm-6 {
+  flex-grow: 1;
+  max-width: 100%;
+  flex-basis: 100%;
+  margin: 0;
+  padding: 0;
+}
+.MuiGrid-grid-sm-6 {
+  flex-grow: 0;
+  max-width: 50%!important;
+  flex-basis: 50%!important;
+  align-self: flex-end;
+}
+  #special_request_main .wrappedListItem,
+  #special_request_main  .wrappedListItemTop {
+  flex: 0 0 77%!important;
+  
+  max-width:224px!important;
+}
+}
+.flexDirectionColumn{
+  flex-direction: column; 
+}
+
+@media only screen and (min-width :1250px) {
+  .flexDirectionColumn {
+    flex-direction: row ;
+}
+
+    }
+.employer_verify_dialog_body 
+  img {
+    max-width: 115px;
+    width: 100%;
+    height: auto;
+  } 
+  
+ #employee-verify-dialog{
+    padding:10px; 
+  } 
+
+ #employee-verify-dialog .MuiDialog-paperWidthSm{
+    padding:20px;
+    max-width: 800px;
+  } 
+
+.employer_verify_dialog_body{
+        
+  background:  none;
+  box-shadow:  none!important;
+}
+.space-vertically-even{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.font-size-14, .MuiInputLabel-root {
+  font-size: 14px!important;
+}
+#collections_div .MuiListItem-gutters{
+  padding-left: 5px!important;
+  padding-right: 5px!important;
+}
+
+#assignFeederTeamPopup .MuiButton-outlined,
+#requestDatenTimePopup .MuiButton-outlined,
+ #editGreenCluster  .MuiButton-outlined{
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 20px;
+  border-radius: 2px;
+  color: #868686;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+#assignFeederTeamPopup  .MuiButton-outlinedPrimary,
+#requestDatenTimePopup .MuiButton-outlinedPrimary,
+#editGreenCluster  .MuiButton-outlinedPrimary
+{
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 20px;
+  border-radius: 2px;
+  color: #868686;
+    font-weight: normal;
+    font-size: 16px;
+    color: #1976d2;
+    border: 1px solid rgba(25, 118, 210, 0.5);
+    padding: 11px;
+}
+
+.selectedDay{
+  color: #1976d2;
+    border: 1px solid rgba(25, 118, 210, 0.5);
+}
+.deselected{
+  background: red!important;
+} 
+
+.menu_shown #outlined-vehicleNumber-input{
+  font-size: 16px;
+  color:#868686;
+  width: 245px;
+  clear: both;
+  
+}
+#register_vehicles_main #vehicle_list_div .MuiGrid-grid-sm-6 {
+  flex-grow: 0;
+  max-width: 50%!important;
+  flex-basis: 50%!important;
+  align-self: flex-start;
+}
+.width-176{
+  width: 176px;
+}
+
+#vehicle_list_div .MuiSnackbarContent-root{
+  background-color: #ffa000;
+}
+
+.small-heading{
+  font-size: 20px;
+  color:#000000;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
 }

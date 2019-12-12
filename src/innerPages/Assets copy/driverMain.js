@@ -2,11 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
+import ListItemText from '@material-ui/core/ListItemText'; 
 
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid'; 
 import { Paper } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   root: {
@@ -99,11 +98,12 @@ const useStyles = makeStyles(theme => ({
   },
   wrappedListItemTop: {
     fontWeight: '700',
-    flex: '0 0 53%'
+    flex: '0 0 53%',
+    minWidth:'200px'
   }
 }));
 
-export default function Vehicle() {
+export default function DriverMain() {
   const classes = useStyles();
 
   return (
@@ -113,7 +113,7 @@ export default function Vehicle() {
 
           <Grid item xs={12} sm={6}>
             <Paper className={classes.alignLeft, classes.topPaper}>
-              <h1 className="{ main_heading-text }">     Request122</h1> </Paper>
+              <h1 className="{ main_heading-text }">     Request</h1> </Paper>
           </Grid>
           <Grid item xs={12} sm={6}>
             <Paper className={classes.topPaper}>
@@ -126,13 +126,13 @@ export default function Vehicle() {
 
         <Grid item xs={12} sm={6}>
           <Paper className={classes.rootOne}>
-            <List component="nav" className={classes.rootOne} aria-label="mailbox folders">
+            <List component="nav" className={classes.rootOne} aria-label="Driver Details">
               <ListItem   variant="raised">
-                <ListItemText  className={ " headingText " }  primary="Vehicle Details" />
+                <ListItemText  className={ " headingText " }  primary="Driver" />
               </ListItem>
 
               <ListItem variant="raised">
-                <ListItemText  className={ " headingText " }  primary="Driver" />
+                <ListItemText  className={ " headingText " }  primary="Total Load Points" />
               </ListItem>
 
             </List>
@@ -144,13 +144,11 @@ export default function Vehicle() {
               <ListItem className={classes.flexWrapParent} >
 
                 <ListItemText primary=" JCB Garbage Collector" className={ " wrappedListItemTop "} />
-                <ListItemText primary="KA 0123" className={classes.wrappedListItem} />
+                <ListItemText primary="KA 01" className={classes.wrappedListItem} />
               </ListItem>
 
               <ListItem  >
-                <Button variant="contained" color="primary" className={classes.button}>
-                  ASSIGN DRIVER
-      </Button>
+              <Typography>1000 Pts </Typography>
               </ListItem>
             </List>
 
