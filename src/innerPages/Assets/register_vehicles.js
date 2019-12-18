@@ -5,17 +5,68 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import PropTypes from 'prop-types';
+import clsx from 'clsx'; 
+import Snackbar from '@material-ui/core/Snackbar';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
+import WarningIcon from '@material-ui/icons/Warning';
 import  AssignDriver  from '../common_files/assignDiver';  
 import NativeSelect from '@material-ui/core/NativeSelect';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core';
-import { styles } from '../../commonStyles.js';
+
+import IconButton from '@material-ui/core/IconButton';
+import { styles , useStyles} from '../../commonStyles.js';
 import './team.css'; 
 import arrow from '../../images/arrow-back.png';
 import DeleteIcon from '@material-ui/icons/Delete';
 import InputBase from '@material-ui/core/InputBase';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ErrorIcon from '@material-ui/icons/Error';
+import InfoIcon from '@material-ui/icons/Info';
+import CloseIcon from '@material-ui/icons/Close';
+
+const variantIcon = {
+  success: CheckCircleIcon,
+  warning: WarningIcon,
+  error: ErrorIcon,
+  info: InfoIcon,
+};
+
+function MySnackbarContentWrapper(props) {
+  const classes ={ useStyles };
+  const { className, message, onClose, variant, ...other } = props;
+  const Icon = variantIcon[variant];
+ 
+  return (
+    <SnackbarContent
+      className={clsx(classes[variant], className)}
+      aria-describedby="client-snackbar"
+      message={
+        <span id="client-snackbar" className={classes.message}>
+          <Icon className={clsx(classes.icon, classes.iconVariant)} />
+          {message}
+        </span>
+      }
+      action={[
+        <IconButton key="close" aria-label="close" color="inherit" onClick={props.onClose()}>
+          <CloseIcon className={classes.icon} />
+        </IconButton>,
+      ]}
+      {...other}
+    />
+  );
+}
+
+MySnackbarContentWrapper.propTypes = {
+  className: PropTypes.string,
+  message: PropTypes.string,
+  onClose: PropTypes.func,
+  variant: PropTypes.oneOf(['error', 'info', 'success', 'warning']).isRequired,
+};
+
 class RegisterVehicle extends React.Component {
 
 
@@ -33,6 +84,8 @@ class RegisterVehicle extends React.Component {
       openTeam :false,
       openDriver :false,
       setOpen: false,
+      
+      openSnack: false,
       theArray:[],
       GCDetails:{
           feederTeamDetails: " ",
@@ -51,8 +104,9 @@ class RegisterVehicle extends React.Component {
 
 
   };
-  showPastAttendance = () => {
-    this.props.history.push("/dashboard/PastAttendance");
+  editVehicle = (e) => {
+    e.stopPropagation();
+    this.props.history.push("/dashboard/editVehicle");
   };
   handleDrawerOpenDriver = () => {
     this.setState({ openDriver: true });
@@ -87,11 +141,14 @@ class RegisterVehicle extends React.Component {
 
   }
   deleteVehicle = (e, i)  => {
+    e.stopPropagation();
     var VehicleList = [...this.state.VehicleList]; // make a separate copy of the array
       var index = i;
     if (i !== -1) {
       VehicleList.splice(i, 1); 
-   this.setState({VehicleList: VehicleList});
+   this.setState({VehicleList: VehicleList,
+  
+    openSnack:true});
     } 
 
   }
@@ -270,7 +327,7 @@ class RegisterVehicle extends React.Component {
               {this.state.VehicleList.map((el, i) => (
                 <Paper key={i} className={classes.paper} id={i} ref={c => this._nodes.set(i, c)} >
                   <Tooltip title="Assign Driver " aria-label="add">
-                    <List component="nav" className={classes.root + "  border-bottom-gery  "} aria-label="mailbox folders" >
+                    <List component="nav" className={classes.root + "  border-bottom-gery  "} aria-label="mailbox folders"    ref={c => this._nodes.set(c)} onClick={ e  => this.editVehicle(e )}  >
                       <ListItem className={" flexWrapParent    "}  >
                         <ListItemText primary={` ${el}_${i} ` } className={" wrappedListItemTop alignLeft"} />
                         <ListItemText primary="Vehicle Number" className={" wrappedListItem  greyText alignLeft "} />
@@ -305,7 +362,21 @@ class RegisterVehicle extends React.Component {
         
           </Grid>
         </Grid>
-
+        <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        open={this.state.openSnack}
+        autoHideDuration={6000}
+        onClose={() => this.handleClose}
+      >
+        <MySnackbarContentWrapper
+          onClose={() => this.handleClose}
+          variant="info" 
+          message="  Vehicle Number XXX Deleted!"
+        />
+      </Snackbar>
       </div>
 
 

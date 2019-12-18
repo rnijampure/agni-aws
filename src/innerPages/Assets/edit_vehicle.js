@@ -87,8 +87,7 @@ class EditVehicle extends React.Component {
 
   }
 
-  doneChecklist = (e, i) => {
-    console.log('hi');
+  doneChecklist = (e, i) => { 
     this.setState({ 
       doneCondition:true
     });
@@ -96,8 +95,7 @@ class EditVehicle extends React.Component {
   }
  
 
-    handleClose = (event, reason) => {
-console.log('hi')
+    handleClose = (event, reason) => { 
     this.setState({ VehicleList: [] ,
       openSnack:false
     });
@@ -153,13 +151,13 @@ console.log('hi')
               <Paper className={classes.paper + " padding-10 "} >
                 <List component="nav" className={classes.root + "  border-bottom-gery "} aria-label="Approve Reject Leaves">
                   <ListItem className={" flexWrapParent    "}  >
-                    <ListItemText primary="ID and Name" className={" wrappedListItemTop alignLeft"} />
-                    <ListItemText primary="12 wed 2019" className={" wrappedListItem  greyText alignLeft "} />
+                    <ListItemText primary="Vehicle Number" className={" wrappedListItemTop alignLeft"} />
+                    <ListItemText primary="Vehicle Type" className={" wrappedListItem  greyText alignLeft "} />
                   </ListItem>
                   <ListItem className={"     alignRight justify-flex-right "}  >
                   <div className={" flexWrapParent    "}   >
-                    <ListItemText primary="ID and Name" className={" wrappedListItemTop alignLeft"} />
-                    <ListItemText primary="12 wed 2019" className={" wrappedListItem    alignLeft "} />
+                    <ListItemText primary="Driver Name" className={" wrappedListItemTop alignLeft"} />
+                    <ListItemText primary="Driver ID" className={" wrappedListItem    alignLeft "} />
                     </div>
                     <div className={"   "}  >
                       <DeleteIcon color="secondary" onClick={e => this.deleteVehicle(e)} />
@@ -172,7 +170,7 @@ console.log('hi')
                   <ListItem>
                     <ListItemText primary="01, Checklist1" className={"  alignLeft"} />
                   </ListItem>
-                  <ListItem  className={"     alignRight justify-flex-right "}  >
+                  <ListItem  className={"     alignRight justify-flex-right "}  className={  this.state.doneCondition ? " displayNone " : "  " }  onClick={e => this.doneChecklist(e)}  >
                     <Button variant="outlined" color="primary" >
                       DONE
                      </Button>   
@@ -184,7 +182,7 @@ console.log('hi')
                   </ListItem>
                   <ListItem  className={"     alignRight justify-flex-right "}  >
                     <Button variant="outlined" color="primary" className={  this.state.doneCondition ? " displayNone " : "  " }  onClick={e => this.doneChecklist(e)} >
-                   DONE 123
+                   DONE  
                      </Button>  
                        <CheckCircleIcon  variant="info"  color="secondary" className={  this.state.doneCondition ? " " : " displayNone " } ></CheckCircleIcon>  
                   </ListItem>

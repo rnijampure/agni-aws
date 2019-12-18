@@ -430,6 +430,16 @@ padding-top: 0!important;
     .padding-left-10{
       padding-left:10px!important;
       }
+      
+      .height48{
+        height:48px;
+      }
+      #bottom-aligned-navbar{
+       justify-content:flex-end;
+      }
+     #bottom-aligned-navbar   .MuiSelect-selectMenu{
+        width: 150px;
+      }
 .active-nav-link-main{
   background:#152440!important;
   color: white!important;  border-left:2px solid #fff!important; 
@@ -784,7 +794,8 @@ align-self: flex-end;}
   width: 176px;
 }
 
-#vehicle_list_div .MuiSnackbarContent-root{
+#register_vehicles_main .MuiSnackbarContent-root,
+ #vehicle_list_div .MuiSnackbarContent-root{
   background-color: #ffa000;
 }
 
@@ -797,3 +808,20 @@ align-self: flex-end;}
   line-height: normal;
   letter-spacing: normal;
 }
+.bottomNavBar {
+      height: 56px;
+display: flex;
+justify-content: center;
+background-color: #fff;
+flex-direction: row;
+width: 100%;
+position: absolute;
+bottom: 0;
+left: 0;
+}
+.badge-warning{
+COLOR:RED!important;
+BORDER:RED;
+}
+
+ 

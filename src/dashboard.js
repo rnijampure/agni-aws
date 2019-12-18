@@ -22,7 +22,7 @@ import DailyAttendance  from './innerPages/attendance/daily_attendance' ;
 import PointList  from './innerPages/points/pointList' ;  
 import Vehicle  from './innerPages/vehicle/VehicleMain' ;  
 import DriverMain  from './innerPages/vehicle/driverMain' ;  
-import LoadMain  from './innerPages/loads/LoadMain' ;    
+import driverLoad  from './innerPages/loads/driverLoad' ;    
 import VendorRequests  from './innerPages/loads/verdorRequests' ;    
 import GCListTeam  from './innerPages/GreenCluster/greenClusterListTeam' ;     
 import editGreenCluster  from './innerPages/GreenCluster/editGreenCluster' ;    
@@ -33,7 +33,7 @@ import SpecialRequest  from './innerPages/Collections/SpecialRequest' ;
 import Assets  from './innerPages/Assets/AssetList' ; 
 import RegisterVehicle  from './innerPages/Assets/register_vehicles' ; 
 import EditVehicle  from './innerPages/Assets/edit_vehicle' ; 
-import driverLoad  from './innerPages/Assets/driverLoad' ; 
+import driverLoadAssets  from './innerPages/Assets/driverLoad' ; 
 import GetPoints  from './innerPages/points/getPoints' ;  
 import { withStyles } from '@material-ui/styles';
 import {
@@ -249,7 +249,7 @@ class Dashboard extends React.Component {
       },
       {
         id: "3",
-        path: "/dashboard/getPoints/",
+        path: "/dashboard/PointStatement/",
         exact: true,
         sidebar: GetPoints,
       },
@@ -273,9 +273,15 @@ class Dashboard extends React.Component {
       },
       {
         id: "3",
-        path: "/dashboard/load/",
+        path: "/dashboard/driverLoad/",
         exact: true,
-        sidebar: LoadMain,
+        sidebar: driverLoad,
+      },
+      {
+        id: "3",
+        path: "/dashboard/driverLoadAssets/",
+        exact: true,
+        sidebar: driverLoadAssets,
       },
       {
          id: "3",
@@ -342,7 +348,7 @@ class Dashboard extends React.Component {
      },
      {
       id: "3",
-     path: "/dashboard/edit_vehicle",
+     path: "/dashboard/editVehicle",
      exact: false,
      sidebar: EditVehicle,
      

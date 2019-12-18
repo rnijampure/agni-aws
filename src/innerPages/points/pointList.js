@@ -4,16 +4,24 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText'; 
 
+import { useHistory } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import { useStyles } from '../../commonStyles.js'; 
 import Grid from '@material-ui/core/Grid'; 
 import { Paper } from '@material-ui/core'; 
+import getPoints from './getPoints.js';
 
+  
 
 export default function PointList() {
   const classes = useStyles();
   const teamList = [1, 2, 3];  
-  
+    const history = useHistory();
+    function getPointsList ()  {
+    
+
+   history.push("/dashboard/PointStatement");
+  };
   const listItems = teamList.map(function (object,item) {
     return (
 
@@ -59,7 +67,7 @@ export default function PointList() {
           </Grid>
           <Grid item xs={12} sm={6}>
           <Paper className={classes.topPaper + " margin-top-30 "}>
-              <Button variant="outlined" color="primary" onClick={() => this.showPastLeaves()}>
+              <Button variant="outlined" color="primary" onClick={() => getPointsList()}>
                 GET POINTS
       </Button>
 

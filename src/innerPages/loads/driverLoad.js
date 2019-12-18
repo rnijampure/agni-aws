@@ -11,15 +11,14 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core';
-import { styles } from '../../commonStyles.js';
-import './team.css'; 
+import { styles } from '../../commonStyles.js'; 
 import arrow from '../../images/arrow-back.png';
 import DeleteIcon from '@material-ui/icons/Delete';
 import InputBase from '@material-ui/core/InputBase';
 
 
 
-class driverLoadAssets extends React.Component {
+class driverLoad extends React.Component {
 
 
   constructor(props) {
@@ -48,15 +47,14 @@ class driverLoadAssets extends React.Component {
     this._nodes = new Map()
     this._handleClick = this.handleClick.bind(this);
     this._deleteVehicle = this.deleteVehicle.bind(this);
-    this.editVehicle = this.editVehicle.bind(this);
     
 
 
 
 
   };
-  editVehicle = () => {
-    this.props.history.push("/dashboard/editVehicle");
+  showPastAttendance = () => {
+    this.props.history.push("/dashboard/PastAttendance");
   };
   handleDrawerOpenDriver = () => {
     this.setState({ openDriver: true });
@@ -98,7 +96,7 @@ class driverLoadAssets extends React.Component {
    this.setState({VehicleList: VehicleList});
     } 
 
-  } 
+  }
 
   GetFormattedDate(date) {
     var todayTime = date;
@@ -258,7 +256,7 @@ class driverLoadAssets extends React.Component {
           <Grid container spacing={2} id="vehicle_list_div">
             <Grid item id="All_Vehicles" xs={12} sm={8}>
 
-              <Paper className={[classes.paper, classes.nobackground   + "  alignLeft  blackText"].join(' ')} >   
+              <Paper className={[classes.paper, classes.nobackground   + "  alignLeft  blackText"].join(' ')}>   
               <List component="nav" className={classes.root  } aria-label="mailbox folders" >
                       <ListItem    > 
                         <ListItemText primary="Vehicle Details" className={" wrappedListItem  greyText alignLeft "} />
@@ -323,4 +321,4 @@ class driverLoadAssets extends React.Component {
   }
 }
 
-export default withStyles(styles)(driverLoadAssets); 
+export default withStyles(styles)(driverLoad); 

@@ -229,7 +229,7 @@ class MainListItems extends React.Component {
         </ExpansionPanel>
         <ExpansionPanel>
           <ExpansionPanelSummary
-            className={"primary-heading"}
+             className={this.getNavStyles(["/dashboard/PointList/","/dashboard/PointStatement/"]) + " single-link "}
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel3a-content"
             id="panel3a-header"
@@ -251,12 +251,87 @@ class MainListItems extends React.Component {
                   <ListItemText className={"inset-heading"} primary="Points Transactions" />
                 </NavLink>
               </ListItem>
-
+              <ListItem button>
+                <NavLink to="/dashboard/PointStatement/" activeClassName="active-nav-link"  >
+                  <ListItemIcon>
+                    <AccountBalanceWalletIcon />
+                  </ListItemIcon>
+                  <ListItemText className={"inset-heading"} primary="Points Statements" />
+                </NavLink>
+              </ListItem>
      
             </List>
 
           </ExpansionPanelDetails>
         </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            className={this.getNavStyles(["/dashboard/Assets/","/dashboard/RegisterVehicle", "dashboard/editVehicle"]) + " single-link "}
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel4a-content"
+            id="panel4a-header"
+          >
+            <ListItemIcon>
+              <DashboardIcon />
+            </ListItemIcon>
+
+            <ListItemText className={"primary-heading"} primary="ASSETS" />
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <List>
+              <ListItem button>
+                <NavLink to="/dashboard/Assets/" activeClassName="active-nav-link"  >
+                  <ListItemIcon>
+                    <AccountBalanceWalletIcon />
+                  </ListItemIcon>
+                  <ListItemText className={"inset-heading"} primary="Assets" />
+                </NavLink>
+              </ListItem>
+ 
+
+            </List>
+
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+       
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+       className={this.getNavStyles(["/dashboard/PointList/","/dashboard/PointStatement/"]) + " single-link "}
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel5a-content"
+            id="panel5a-header"
+          >
+            <ListItemIcon>
+              <DashboardIcon />
+            </ListItemIcon>
+
+            <ListItemText className={"primary-heading"} primary="VEHICLE" />
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <List>
+
+              <ListItem button>
+                <NavLink to="/dashboard/vehicle/" activeClassName="active-nav-link"  >
+                  <ListItemIcon>
+                    <AccountBalanceWalletIcon />
+                  </ListItemIcon>
+                  <ListItemText className={"inset-heading"} primary="View Vehicles" />
+                </NavLink>
+              </ListItem>
+              <ListItem button>
+                <NavLink to="/dashboard/load/" activeClassName="active-nav-link"  >
+                  <ListItemIcon>
+                    <AccountBalanceWalletIcon />
+                  </ListItemIcon>
+                  <ListItemText className={"inset-heading"} primary="Driver Loads" />
+                </NavLink>
+              </ListItem>
+
+            </List>
+
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+
         <ExpansionPanel>
           <ExpansionPanelSummary
             className={"primary-heading"}
