@@ -34,10 +34,11 @@ import Assets  from './innerPages/Assets/AssetList' ;
 import RegisterVehicle  from './innerPages/Assets/register_vehicles' ; 
 import EditVehicle  from './innerPages/Assets/edit_vehicle' ; 
 import driverLoadAssets  from './innerPages/Assets/driverLoad' ; 
+import driverLoadDetails  from './innerPages/loads/driverLoadDetails' ; 
 import GetPoints  from './innerPages/points/getPoints' ;  
 import { withStyles } from '@material-ui/styles';
 import {
- 
+  
   Route, Switch, withRouter
 } from "react-router-dom"; 
 
@@ -228,6 +229,12 @@ class Dashboard extends React.Component {
       },
       {
         id: "3",
+        path: "/dashboard/load/",
+        exact: true,
+        sidebar: TeamListMain,
+      },
+      {
+        id: "3",
         path: "/dashboard/Teams/",
         exact: true,
         sidebar: TeamListMain,
@@ -277,6 +284,13 @@ class Dashboard extends React.Component {
         exact: true,
         sidebar: driverLoad,
       },
+    
+    {
+      id: "3",
+      path: "/dashboard/driverLoadDetails/",
+      exact: true,
+      sidebar: driverLoadDetails,
+    },
       {
         id: "3",
         path: "/dashboard/driverLoadAssets/",

@@ -81,7 +81,7 @@ class driverLoad extends React.Component {
   handleClick = (e, i)  => {
     var target = e.target || e.srcElement;
     console.log(target.value);
-  this.setState.VehicleType.push(target.value)
+ // this.setState.VehicleType.push(target.value)
   this.setState({
     VehicleTypeSelected:target.value
     })
@@ -171,8 +171,8 @@ class driverLoad extends React.Component {
             <Grid container spacing={3}>
 
               <Grid item xs={12} sm={6}>
-                <Paper className={[classes.alignLeft, classes.topPaper].join(' ')}>
-                  <h1 className="{ main_heading-text }" onClick={this.props.history.goBack} >  <img className={classes.img} alt="Back" src={arrow} />  Back</h1> </Paper>
+                <Paper className={[classes.alignLeft, classes.topPaper + " padding-left-0 "].join(' ')}>
+                  <h1 className={ " main_heading-text "}  >Driver Load</h1> </Paper>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Paper className={classes.topPaper}>
@@ -185,10 +185,10 @@ class driverLoad extends React.Component {
             <Grid container spacing={2}>
 
 
-              <Grid item xs={12} sm={5} className={classes.nobackground + "   line-hight-35  "}>
+              <Grid item xs={12} sm={3} className={classes.nobackground + "   line-hight-35  "}>
                 <Paper className={classes.nobackground + " alignLeft line-hight-35  greyText"}>  Register Vehicle: </Paper>
               </Grid>
-              <Grid item xs={12} sm={5} className={classes.nobackground + " alignLeft line-hight-35 maxWidth100"}>
+              <Grid item xs={12} sm={3} className={classes.nobackground + " alignLeft line-hight-35 maxWidth100"}>
                 <Paper className={classes.nobackground + " alignLeft line-hight-35 greyText maxWidth100"}>  Type:</Paper>
               </Grid>
               <Grid item xs={12} sm={2}>
@@ -203,10 +203,11 @@ class driverLoad extends React.Component {
             <Grid container spacing={2}>
 
 
-              <Grid item xs={12} sm={5} className={classes.nobackground + "   line-hight-35 "}>
+              <Grid item xs={12} sm={3} className={classes.nobackground + "   line-hight-35 "}>
                 <Paper className={classes.nobackground + " alignLeft line-hight-35 "}>  <TextField
                   id="outlined-vehicleNumber-input"
                   value="Enter Vehicle Register Number"
+                  placeholder="Enter Vehicle Register Number"
                   type="text"
                   autoComplete="Vehicle Number"
                   variant="outlined"
@@ -214,22 +215,22 @@ class driverLoad extends React.Component {
                 /> </Paper>
               </Grid>
  
-              <Grid item xs={12} sm={4} className={classes.nobackground + "   line-hight-35 "}>
+              <Grid item xs={12} sm={3} className={classes.nobackground + "   line-hight-35 "}>
                 <Paper className={classes.nobackground + " alignLeft line-hight-35 "}>  
         <NativeSelect
           id="demo-customized-select-native"
           value={this.state.VehicleTypeSelected}
           onChange={this.handleClick}
-            label="Enter Vehicle Number"
+            label="Enter Vehicle Type"
           input={<BootstrapInput />}
         >
-          <option value="" />
-          <option value={this.state.VehicleTypeSelected} >Enter Vehicle Number</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option>
+            {this.state.VehicleType.map((el, i) => ( 
+          <option key={i}  value={el} > {el } </option>
+          ))}
+      
         </NativeSelect></Paper>
               </Grid>
-              <Grid item xs={12} sm={2} className={" alignRight "}>
+              <Grid item xs={12} sm={3} className={" alignLeft "}>
                 <Button variant="contained" color="primary" >
                 REGISTER
       </Button> 
@@ -258,11 +259,11 @@ class driverLoad extends React.Component {
 
               <Paper className={[classes.paper, classes.nobackground   + "  alignLeft  blackText"].join(' ')}>   
               <List component="nav" className={classes.root  } aria-label="mailbox folders" >
-                      <ListItem    > 
-                        <ListItemText primary="Vehicle Details" className={" wrappedListItem  greyText alignLeft "} />
+                      <ListItem   className={" padding-left-0"}   > 
+                        <ListItemText primary="Driver Details" className={" wrappedListItem  greyText alignLeft padding-left-0"} />
                       </ListItem>
-                      <ListItem className={"hideme "} >
-                      <ListItemText primary="Driver" className={" wrappedListItem  greyText alignLeft "} />
+                      <ListItem className={"  alignRight"} >
+                      <ListItemText primary="Total Load Points" className={" wrappedListItem  greyText alignLeft "} />
                      
 
                       </ListItem>
@@ -271,37 +272,23 @@ class driverLoad extends React.Component {
               </Paper>
               {this.state.VehicleList.map((el, i) => (
                 <Paper key={i} className={classes.paper} id={i} ref={c => this._nodes.set(i, c)} >
-                  <Tooltip title="Assign Driver " aria-label="add">
+                  <Tooltip title="Driver Loads" aria-label="add">
                     <List component="nav" className={classes.root + "  border-bottom-gery  "} aria-label="mailbox folders" >
                       <ListItem className={" flexWrapParent    "}  >
                         <ListItemText primary={` ${el}_${i} ` } className={" wrappedListItemTop alignLeft"} />
                         <ListItemText primary="Vehicle Number" className={" wrappedListItem  greyText alignLeft "} />
                       </ListItem>
-                      <ListItem  >
-                      <Button variant="contained" color="primary" className={classes.button + " min-width-150  "}   onClick={e => this.handleDrawerOpenDriver(e )}  >
-                       ASSIGN DRIVER 
-               </Button>
-
-                      </ListItem>
-                      <ListItem  >
-                      <DeleteIcon  color="secondary"   id={i} ref={c => this._nodes.set(i, c)} onClick={ e  => this.deleteVehicle(e, i )}   />
-
-                      </ListItem>
+                      <ListItem  className={"  bottom-aligned-navbar    alignLeft "}  >
+                   
+                    <ListItemText primary=" 1000 Pt" className={"  alignLeft "} />
+                      </ListItem> 
                     </List>
                   </Tooltip>
  
                 </Paper>
 
               ))}
-
-              {(this.state.VehicleList.length) == 0 &&
-                <Paper className={classes.paper + " centerAlignedContent "} style={{ minHeight: '80px' }}>
-
-                  <p>
-                    You have no more vehicles to register
-      </p>
-                </Paper>
-              }
+ 
             </Grid>
 
         
@@ -311,10 +298,7 @@ class driverLoad extends React.Component {
       </div>
 
 
-
-      { (this.state.openDriver) == true &&   <AssignDriver props={this.state}  handleDrawerClose={this.handleDrawerClose}/>}
  
-
 
     </React.Fragment>
     )

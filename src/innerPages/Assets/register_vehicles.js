@@ -78,6 +78,7 @@ class RegisterVehicle extends React.Component {
       LeaveReqList: [1, 2, 3, 4, 5], 
       DeniedList: [1, 2, 3],
       leaveStatus: "APPROVED",
+
       VehicleTypeSelected: "Select Vehicle Type ",
       VehicleType: ["Truck", "Lorry"],
       VehicleList:["boggi","chogi","rogi"],
@@ -130,10 +131,11 @@ class RegisterVehicle extends React.Component {
   
   
   }; 
+
   handleClick = (e, i)  => {
     var target = e.target || e.srcElement;
     console.log(target.value);
-  this.setState.VehicleType.push(target.value)
+ // this.setState.VehicleType.push(target.value)
   this.setState({
     VehicleTypeSelected:target.value
     })
@@ -240,10 +242,10 @@ class RegisterVehicle extends React.Component {
             <Grid container spacing={2}>
 
 
-              <Grid item xs={12} sm={5} className={classes.nobackground + "   line-hight-35  "}>
+              <Grid item xs={12} sm={3} className={classes.nobackground + "   line-hight-35  "}>
                 <Paper className={classes.nobackground + " alignLeft line-hight-35  greyText"}>  Register Vehicle: </Paper>
               </Grid>
-              <Grid item xs={12} sm={5} className={classes.nobackground + " alignLeft line-hight-35 maxWidth100"}>
+              <Grid item xs={12} sm={3} className={classes.nobackground + " alignLeft line-hight-35 maxWidth100"}>
                 <Paper className={classes.nobackground + " alignLeft line-hight-35 greyText maxWidth100"}>  Type:</Paper>
               </Grid>
               <Grid item xs={12} sm={2}>
@@ -258,10 +260,11 @@ class RegisterVehicle extends React.Component {
             <Grid container spacing={2}>
 
 
-              <Grid item xs={12} sm={5} className={classes.nobackground + "   line-hight-35 "}>
+              <Grid item xs={12} sm={3} className={classes.nobackground + "   line-hight-35 "}>
                 <Paper className={classes.nobackground + " alignLeft line-hight-35 "}>  <TextField
                   id="outlined-vehicleNumber-input"
                   value="Enter Vehicle Register Number"
+                  placeholder="Enter Vehicle Register Number"
                   type="text"
                   autoComplete="Vehicle Number"
                   variant="outlined"
@@ -269,26 +272,27 @@ class RegisterVehicle extends React.Component {
                 /> </Paper>
               </Grid>
  
-              <Grid item xs={12} sm={4} className={classes.nobackground + "   line-hight-35 "}>
+              <Grid item xs={12} sm={3} className={classes.nobackground + "   line-hight-35 "}>
                 <Paper className={classes.nobackground + " alignLeft line-hight-35 "}>  
         <NativeSelect
           id="demo-customized-select-native"
           value={this.state.VehicleTypeSelected}
           onChange={this.handleClick}
-            label="Enter Vehicle Number"
+            label="Enter Vehicle Type"
           input={<BootstrapInput />}
         >
-          <option value="" />
-          <option value={this.state.VehicleTypeSelected} >Enter Vehicle Number</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option>
+            {this.state.VehicleType.map((el, i) => ( 
+          <option key={i}  value={el} > {el } </option>
+          ))}
+      
         </NativeSelect></Paper>
               </Grid>
-              <Grid item xs={12} sm={2} className={" alignRight "}>
+              <Grid item xs={12} sm={2} className={" alignLeft "}>
                 <Button variant="contained" color="primary" >
                 REGISTER
       </Button> 
               </Grid>
+
 
 
             </Grid>
