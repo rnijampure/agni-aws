@@ -16,7 +16,7 @@
     "date-fns": "^2.8.1",
     "formik": "^1.5.8",
     "history": "^4.10.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "material-ui-datetime-range-picker": "^1.0.0",
     "mdi-material-ui": "^6.8.0",
     "react": "^16.10.2",
